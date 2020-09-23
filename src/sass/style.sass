@@ -8,7 +8,7 @@
     color: white
 
 body 
-    background-color: black
+    background-color: $BackgroundColor
 
 .container
     width: 75%
@@ -17,7 +17,16 @@ body
 a 
     text-decoration: none
 
-.link 
-    cursor: pointer
+.loadingbar 
+    background: black !important
+    & > div 
+        background: $PrimaryColor
 
-@import 'components/header'
+.endContent
+    margin-bottom: 3rem
+
+.title 
+    font-size: 1.3em
+    margin-bottom: 1rem
+
+@import 'components/header', 'components/footer', 'pages/homepage'

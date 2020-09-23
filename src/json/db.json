@@ -1,0 +1,88 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Rocket league",
+			"banner": "http://localhost:3001/banners/rocket_league.jpg",
+			"cover": "http://localhost:3001/products/rocket_league.jpg",
+			"des": "Rocket League is a high-powered hybrid of arcade-style soccer and vehicular mayhem with easy-to-understand controls and fluid, physics-driven competition.",
+			"price": 7.99,
+			"publisher": "Psyonix LLC",
+			"release": "Sep 24, 2020",
+			"rating": 4.5,
+			"platform": "Windows 10",
+			"content": "PLAY ROCKET LEAGUE FOR FREE! Download and compete in the high-octane hybrid of arcade-style soccer and vehicular mayhem! customize your car, hit the field, and compete in one of the most critically acclaimed sports games of all time! Download and take your shot! Hit the field by yourself or with friends in 1v1, 2v2, and 3v3 Online Modes, or enjoy Extra Modes like Rumble, Snow Day, or Hoops. Unlock items in Rocket Pass, climb the Competitive Ranks, compete in Competitive Tournaments, complete Challenges, enjoy cross-platform progression and more! The field is waiting. Take your shot!",
+			"sold": 3000
+		},
+		{
+			"id": 2,
+			"name": "STAR WARS™: Squadrons",
+			"banner": "http://localhost:3001/banners/starwars_squardons.jpg",
+			"cover": "http://localhost:3001/products/starwars_squardons.jpg",
+			"des": "Pre-order STAR WARS™: Squadrons to get the New Republic Recruit and Imperial Ace cosmetic items! Feel the adrenaline of first-person multiplayer space dogfights alongside your squadron, and buckle up in a thrilling STAR WARS™ campaign.",
+			"price": 39.99,
+			"publisher": "Electronic Arts",
+			"release": "Oct 2, 2020",
+			"rating": 4.0,
+			"platform": "Windows 10",
+			"content": "Master the art of starfighter combat in the authentic piloting experience STAR WARS™: Squadrons. Buckle up, feel the adrenaline of first-person multiplayer space dogfights alongside your squadron, and learn what it means to be a pilot in a thrilling STAR WARS™ single-player campaign.",
+			"sold": 3400
+		},
+		{
+			"id": 3,
+			"name": "CastleStorm II",
+			"banner": "http://localhost:3001/banners/castlestorm_ii.jpg",
+			"cover": "http://localhost:3001/products/castlestorm_ii.jpg",
+			"des": "What is CastleStorm II, you ask? Better question: What ISN’T it?! Projectile warfare. Tower defense. Brutal combat. Whimsical characters. Epic campaigns of kingdom-conquering tactical strategy. ZOMBIE SHEEP! Gaming’s greatest super-duper genre mashup awaits.",
+			"price": 7.99,
+			"publisher": "Zen Studios",
+			"release": "Sep 23, 2020",
+			"rating": 4,
+			"platform": "Windows 10",
+			"content": "CastleStorm II levels up gaming’s greatest genre mishmash with ruthless destruction powered by Unreal 4, plus a whole new metagame of strategic, tactical conquestThe heroes of the Kingdom confront the vile forces of the Undead, and you’ll plot your path to triumph for both sides in two epic story-driven campaigns. But not without some hands-on chaotic carnage and delightful devastation!CastleStorm II returns to a classic fantasy land of medieval madness, rife with heroic knights, enchanting sorceresses, glorious griffins…and sheep. But a new threat rises – literally…as in, from the grave. Walking corpses. Headless horsemen. ZOMBIE sheep. All-around nasty necromancy. You get the picture.Build an entire empire through gameplay that engages your inner hardcore strategist…then command – even CONTROL – your soldiers en route to triumph!",
+			"sold": 2000
+		},
+		{
+			"id": 4,
+			"name": "Crysis Remastered",
+			"banner": "http://localhost:3001/banners/crysis_remastered.jpg",
+			"cover": "http://localhost:3001/products/crysis_remastered.jpg",
+			"des": "The classic first-person shooter from Crytek is back with the action-packed gameplay, sandbox world, and thrilling epic battles you loved the first time around – now with remastered graphics optimized for a new generation of hardware.",
+			"price": 11.99,
+			"publisher": "Crytek",
+			"release": "Sep 18, 2020",
+			"rating": 5.0,
+			"platform": "Windows 10",
+			"content": "What begins as a simple rescue mission becomes the battleground of a new war as alien invaders swarm over a North Korean island chain. Armed with a powerful Nanosuit, players can become invisible to stalk enemy patrols, or boost strength to lay waste to vehicles. The Nanosuit’s speed, strength, armor, and cloaking allow creative solutions for every kind of fight, while a huge arsenal of modular weaponry provides unprecedented control over play style. In the ever-changing environment, adapt tactics and gear to dominate your enemies, in an enormous sandbox world.",
+			"sold": 2500
+		},
+		{
+			"id": 5,
+			"name": "Tony Hawk's™ Pro Skater™ 1 + 2",
+			"banner": "http://localhost:3001/banners/tony_hawks_pro_skater_1_2.jpg",
+			"cover": "http://localhost:3001/products/tony_hawks_pro_skater_1_2.jpg",
+			"des": "Play the fully-remastered Tony Hawk’s™ Pro Skater™ & Tony Hawk’s™ Pro Skater™ 2 games in one epic collection, rebuilt from the ground up in incredible HD.",
+			"price": 39.99,
+			"publisher": "Activision",
+			"release": "Sep 5, 2020",
+			"rating": 4.5,
+			"platform": "Windows 10",
+			"content": "Play all the original modes and go head-to-head with local 2-Player modes. Show off your style and creativity with upgraded Create-A-Park and Create-A-Skater features. Compete against players from around the world in Multiplayer modes and leaderboards.",
+			"sold": 2900
+		},
+		{
+			"id": 6,
+			"name": "Path of Exile",
+			"banner": "http://localhost:3001/banners/path_of_exile.jpg",
+			"cover": "http://localhost:3001/products/path_of_exile.jpg",
+			"des": "You are an Exile, struggling to survive on the dark continent of Wraeclast, as you fight to earn power to exact your revenge against those who wronged you. Created by hardcore gamers, Path of Exile is an online Action RPG set in a dark fantasy world.",
+			"price": 0,
+			"publisher": "Grinding Gear Games",
+			"release": "Oct 23, 2013",
+			"rating": 4.5,
+			"platform": "Windows 10",
+			"content": "Path of Exile is an online free-to-play Action RPG set in the dark fantasy world of Wraeclast. It provides deep character customisation with its sprawling passive skill tree, socketable skill gems, immense itemisation and crafting system. You can pick from seven starting classes and 18 sub-classes. Play solo or alongside up to five friends.",
+			"sold": 1900
+		}
+	]
+}
