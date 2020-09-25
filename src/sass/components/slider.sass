@@ -1,0 +1,63 @@
+.slider
+    @extend .endContent
+    .slide 
+        font-size: 85%
+        display: flex
+        background-color: $GrayColor
+        &__image
+            flex-basis: 60%
+            height: 400px
+            background-size: cover !important  
+            transition: background 0.5s linear
+        &__content
+            flex-basis: 40% 
+            padding: 40px
+            +flexDisplay(space-between)
+            flex-direction: column
+            &-control
+                margin-left: -15px
+                +flexDisplay(space-between)
+                align-items: center
+                svg 
+                    font-size: 0.8rem
+                &-left
+                    display: flex
+                    span
+                        display: flex 
+                        align-items: center
+                        padding: $mdSpace
+                        &:hover 
+                            background-color: $TextColor
+                &-right 
+                    span 
+                        display: inline-block 
+                        margin-left: $smSpace 
+                        svg > *
+                            color: $TextColor
+                            transition: 0.5s linear
+                    span.active, span:hover
+                        svg > * 
+                            color: white
+                            transform: scale(1.1)
+            &-description
+                margin-top: $lgSpace
+                p 
+                    color: $TextColor
+                p:first-child 
+                    font-weight: 600
+                p:nth-child(2)
+                    color: white
+                    margin: $lgSpace 0
+                    font-size: 2em
+                p:last-child 
+                    display: -webkit-box
+                    line-height: 1.5rem
+                    text-overflow: ellipsis
+                    overflow: hidden
+                    -webkit-line-clamp: 3
+                    -webkit-box-orient: vertical
+            &-btn 
+                display: flex 
+                align-items: center
+                svg 
+                    margin-left: $xsSpace
