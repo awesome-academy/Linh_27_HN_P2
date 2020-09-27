@@ -1,0 +1,36 @@
+@import '../_mixins', '../_variables'
+
+.sidebar
+    &__list
+        border-bottom: 1px solid $GrayColor
+        span, p
+            font-size: 0.85em
+            color: $TextColor
+            display: block
+            transition: 0.5s
+            padding: $mdSpace 0
+        &-item:hover span, &-title:hover p, &-title:hover svg > *
+            color: white
+        &-item, &-title 
+            cursor: pointer
+            +flexDisplay(space-between)
+            align-items: center
+        &-item
+            .active
+                color: white
+            svg
+                font-size: 0.85em
+        &-title
+            p 
+                text-transform: uppercase
+                font-weight: 600
+            svg > *
+                color: $TextColor
+                transition: 0.5s
+            .rolate
+                transition: 0.2s linear
+            .rolate.down
+                transform: rotate(-180deg)
+            .rolate.up 
+                transform: rotate(0deg)
+                

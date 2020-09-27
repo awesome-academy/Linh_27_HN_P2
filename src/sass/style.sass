@@ -1,0 +1,46 @@
+@import '_mixins', '_variables'
+    
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+
+body 
+    background-color: $BackgroundColor
+
+.container
+    width: 75%
+    margin: auto
+
+p, span, a, div, button, input
+    color: white
+
+a 
+    text-decoration: none
+
+main 
+    padding-top: 150px
+
+.loadingbar 
+    background: black !important
+    & > div 
+        background: $PrimaryColor
+
+.loadingCircle 
+    circle
+        color: $PrimaryColor
+
+.error 
+    text-transform: uppercase
+    color: red 
+    text-align: center
+
+.endContent
+    margin-bottom: 3rem
+
+.title 
+    font-size: 1.3em
+    margin-bottom: 1rem
+
+@import 'components/header', 'components/footer', 'pages/homepage', 'pages/browsepage', 'pages/productDetail', 'pages/form'

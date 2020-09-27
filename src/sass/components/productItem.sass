@@ -1,0 +1,28 @@
+@import '../_mixins', '../_variables'
+    
+.product 
+    height: 100%
+    +flexDisplay(space-between)
+    flex-direction: column
+    &:hover 
+        opacity: 0.75
+        transition: 0.5s linear
+    &__head
+        &-image 
+            padding-bottom: 140%
+            background-size: cover !important
+            border-radius: 2px
+        &-detail
+            margin: $lgSpace 0
+            &-publisher
+                color: $TextColor
+                margin-top: $xsSpace
+                font-size: 0.9em
+    &__foot
+        +flexDisplay(space-between)
+        &-rating
+            display: flex
+            align-items: center
+            color: $TextColor
+            svg > *
+                color: $TextColor
