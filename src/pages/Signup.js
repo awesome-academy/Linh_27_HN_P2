@@ -105,9 +105,10 @@ function Signup() {
 				!emailAlert &&
 				!passwordAlert &&
 				!repasswordAlert &&
-				termAgree
+				termAgree &&
+				repassword
 		);
-	}, [user, emailAlert, passwordAlert, repasswordAlert, termAgree]);
+	}, [user, emailAlert, passwordAlert, repasswordAlert, termAgree, repassword]);
 
 	return (
 		<div className="Signup">
