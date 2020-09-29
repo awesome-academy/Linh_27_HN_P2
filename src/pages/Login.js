@@ -62,13 +62,16 @@ function Login() {
 				</div>
 				{logInLoading ? (
 					<Link to="#" className="form__button">
-						<CircularProgress className="loadingCircle" size={30} />
+						<CircularProgress className="loadingCircle" size={12} />
 					</Link>
 				) : user.email && user.password ? (
 					<Link
 						to="#"
 						className="form__button form__button--active"
-						onClick={() => handleLogin()}
+						onClick={(e) => {
+							e.preventDefault();
+							handleLogin();
+						}}
 					>
 						{logInError ? "Retry" : "Log in now"}
 					</Link>

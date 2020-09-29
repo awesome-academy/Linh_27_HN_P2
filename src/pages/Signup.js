@@ -105,9 +105,10 @@ function Signup() {
 				!emailAlert &&
 				!passwordAlert &&
 				!repasswordAlert &&
-				termAgree
+				termAgree &&
+				repassword
 		);
-	}, [user, emailAlert, passwordAlert, repasswordAlert, termAgree]);
+	}, [user, emailAlert, passwordAlert, repasswordAlert, termAgree, repassword]);
 
 	return (
 		<div className="Signup">
@@ -185,7 +186,7 @@ function Signup() {
 				</div>
 				{signUpLoading ? (
 					<Link to="#" className="form__button">
-						<CircularProgress className="loadingCircle" size={30} />
+						<CircularProgress className="loadingCircle" size={12} />
 					</Link>
 				) : (
 					<Link
@@ -195,7 +196,10 @@ function Signup() {
 								? "form__button form__button--active"
 								: "form__button"
 						}
-						onClick={() => handleSignup()}
+						onClick={(e) => {
+							e.preventDefault();
+							handleSignup();
+						}}
 					>
 						{signUpError ? "Retry" : "Sign up now"}
 					</Link>

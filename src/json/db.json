@@ -874,33 +874,16 @@
   "users": [
     {
       "email": "thunderking9x@gmail.com",
-      "password": "$2a$10$vQr.awhp1EArHdxksMKo5euyTwC9OVM/LautykTvC12W.Dlu2s7lK",
+      "password": "$2a$10$RaPMWR8TvLJr6AiepphRnOnE1Z3S5z2Fbv7y.TerJtsDUq0VJj.B6",
       "firstname": "Nguyễn Tuấn",
       "lastname": "Linh",
       "phone": "0355469233",
       "avatar": "http://localhost:3001/avatar/default.png",
-      "cart": [],
+      "cart": [
+        "7",
+        "5"
+      ],
       "id": 1
-    },
-    {
-      "email": "thunderking8x@gmail.com",
-      "password": "$2a$10$zycnAQazjSBUlDl0PTBr2.FNilNquglvS0lksyQ3n3Ue4VzdgaqQS",
-      "firstname": "Nguyễn Tuấn",
-      "lastname": "Linh",
-      "phone": "0355469233",
-      "avatar": "http://localhost:3001/avatar/default.png",
-      "cart": [],
-      "id": 2
-    },
-    {
-      "email": "thunderking10x@gmail.com",
-      "password": "$2a$10$bEfu1BCO9gdjC18/knjIrOH5u1EHwen485keMDE3ipaDGxvV5QRK6",
-      "firstname": "Nguyễn Tuấn",
-      "lastname": "Linh",
-      "phone": "0355469233",
-      "avatar": "http://localhost:3001/avatar/default.png",
-      "cart": [],
-      "id": 3
     }
   ]
 }

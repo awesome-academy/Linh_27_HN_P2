@@ -1,5 +1,5 @@
 export const emailValidate = (email) => {
-	const regEmail = /^[a-z][a-z0-9_]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/gm;
+	const regEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 	return regEmail.test(email);
 };
 

@@ -4,7 +4,8 @@ import discoverProductsReducer from "./discoverProducts";
 import navbarReducer from "./navbar";
 import productDetailReducer from "./productDetail";
 import sidebarReducer from "./sidebar";
-import authReducer from "./auth"
+import authReducer from "./auth";
+import cartRedudcer from "./cart";
 
 const rootReducer = combineReducers({
 	discoverProducts: discoverProductsReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
 	navbar: navbarReducer,
 	productDetail: productDetailReducer,
 	auth: authReducer,
+	cart: cartRedudcer,
 });
 
 export default rootReducer;

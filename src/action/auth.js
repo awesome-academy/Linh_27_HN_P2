@@ -63,7 +63,6 @@ export const authorize = () => {
 				.then((res) => res.json())
 				.then((result) => {
 					dispatch(getUserInfo(result));
-					console.log(result);
 				})
 				.catch((error) => {
 					console.log(error.toString());

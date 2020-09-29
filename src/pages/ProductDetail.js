@@ -14,12 +14,18 @@ import RedditShareButton from "../components/shareButtons/RedditShareButton";
 import ProductSpecList from "../components/product/ProductSpecList";
 import FacebookComment from "../components/FacebookComment";
 import ProductRelated from "../components/product/ProductRelated";
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { changeCart } from "../action/cart";
 
 function ProductDetail() {
 	const productId = useParams().productId;
 	const loading = useSelector((state) => state.productDetail.loading);
 	const error = useSelector((state) => state.productDetail.error);
 	const productDetail = useSelector((state) => state.productDetail.product);
+	const userinfo = useSelector((state) => state.auth.userinfo);
+	const changeLoading = useSelector((state) => state.cart.changeLoading);
+	const changeError = useSelector((state) => state.cart.changeError);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -34,6 +40,32 @@ function ProductDetail() {
 			</div>
 		);
 	};
+
+	const handleCartClick = () => {
+		if (userinfo) {
+			if (!changeLoading) {
+				let myCart = userinfo.cart ? userinfo.cart : [];
+				let noti;
+				if (myCart.includes(productId)) {
+					myCart = myCart.filter((id) => {
+						return id !== productId;
+					});
+					noti = `Removed ${productDetail.name} from your cart`;
+				} else {
+					myCart = myCart.concat(productId);
+					noti = `Added ${productDetail.name} to your cart`;
+				}
+				dispatch(changeCart(userinfo.id, myCart, productDetail.name));
+				if (!changeLoading) {
+					alert(changeError || noti);
+				}
+			}
+		} else {
+			window.location.href = "/login";
+		}
+	};
+
+	console.log(userinfo.cart);
 
 	if (error) {
 		return <div className="error">{error}</div>;
@@ -100,8 +132,21 @@ function ProductDetail() {
 										<Link className="buy" to="/checkout">
 											Buy now
 										</Link>
-										<Link className="addToCart" to="/cart">
-											<AddShoppingCartIcon />
+										<Link
+											className="addToCart"
+											to="#"
+											onClick={(e) => {
+												e.preventDefault();
+												handleCartClick();
+											}}
+										>
+											{changeLoading ? (
+												<CircularProgress className="loadingCircle" size={24} />
+											) : userinfo.cart && userinfo.cart.includes(productId) ? (
+												<RemoveShoppingCartIcon />
+											) : (
+												<AddShoppingCartIcon />
+											)}
 										</Link>
 									</div>
 								</div>
