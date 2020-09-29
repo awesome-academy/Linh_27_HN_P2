@@ -2,7 +2,7 @@ import { LinearProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchProductDetail } from "../action/productDetail";
+import { fetchProductDetail, rateProduct } from "../action/productDetail";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import StarRateIcon from "@material-ui/icons/StarRate";
@@ -65,7 +65,9 @@ function ProductDetail() {
 		}
 	};
 
-	console.log(userinfo.cart);
+	const handleRateClick = (value) => {
+		dispatch(rateProduct(productId, userinfo, productDetail, value));
+	};
 
 	if (error) {
 		return <div className="error">{error}</div>;
@@ -110,12 +112,16 @@ function ProductDetail() {
 								</div>
 								<div className="shopping">
 									<div className="shopping__info">
-										<div className="shopping__info-rating">
-											<StarRateIcon />
-											{productDetail.rating
-												? productDetail.rating.toFixed(1)
-												: ""}
-										</div>
+										{productDetail.rateCount ? (
+											<div className="shopping__info-rating">
+												<StarRateIcon />
+												{productDetail.rating
+													? productDetail.rating.toFixed(1)
+													: ""}
+											</div>
+										) : (
+											"No ratings yet"
+										)}
 										<div className="shopping__info-price">
 											{productDetail.price ? "$" + productDetail.price : "Free"}
 										</div>
@@ -198,16 +204,27 @@ function ProductDetail() {
 						<div className="detail__rating">
 							<div>Rating</div>
 							<div className="detail__rating-control">
-								<div className="detail__rating-control-info">
-									<StarRateIcon />
-									{productDetail.rating
-										? productDetail.rating.toFixed(1)
-										: ""}{" "}
-									({productDetail.rateCount} users)
-								</div>
+								{productDetail.rateCount ? (
+									<div className="detail__rating-control-info">
+										<StarRateIcon />
+										{productDetail.rating
+											? productDetail.rating.toFixed(1)
+											: ""}{" "}
+										({productDetail.rateCount} users)
+									</div>
+								) : (
+									"No ratings yet"
+								)}
 								<div className="detail__rating-control-rate">
 									<p>Rate this game:</p>
-									<Rating name="rating" defaultValue={0} size="medium" />
+									<Rating
+										name="rating"
+										value={userinfo ? userinfo.ratedProducts[productId] : 0}
+										size="medium"
+										onChange={(value) => {
+											handleRateClick(parseInt(value.target.value));
+										}}
+									/>
 								</div>
 							</div>
 						</div>

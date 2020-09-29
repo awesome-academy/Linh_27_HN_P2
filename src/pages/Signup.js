@@ -22,6 +22,7 @@ function Signup() {
 		password: "",
 		avatar: "http://localhost:3001/avatar/default.png",
 		cart: [],
+		ratedProducts: {},
 	});
 	const dispatch = useDispatch();
 	const [repassword, SetRepassword] = useState("");

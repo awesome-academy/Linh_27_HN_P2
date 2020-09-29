@@ -750,8 +750,8 @@
       "des": "Humanity is on the brink of extinction. From New York to Moscow, through Jerusalem, Tokyo and Marseille, the undead apocalypse continues to spread. As the end looms, a hardened few band together to defeat the horde and outlive the dead.",
       "price": 17.99,
       "publisher": "Mad Dog Games",
-      "rating": 4.3,
-      "rateCount": 300,
+      "rating": 4.2990033222591375,
+      "rateCount": 301,
       "platform": "Windows 10",
       "sold": 700,
       "category": "Shooter, FPS",
@@ -782,8 +782,8 @@
       "des": "TIME Magazine Top 10 Games of 2016 Craft, battle, and quest your way through Crashlands, a story-driven Crafting ARPG overflowing with sass!",
       "price": 5.99,
       "publisher": "Butterscotch Shenanigans",
-      "rating": 4.5,
-      "rateCount": 300,
+      "rating": 4.495016611295681,
+      "rateCount": 301,
       "platform": "Windows 10",
       "sold": 900,
       "category": "Action, RPG, Adventure",
@@ -814,8 +814,8 @@
       "des": "Rogue agent Rico Rodriguez journeys to Solis, a huge South American world home of conflict, oppression and extreme weather conditions. Strap into your wingsuit, equip your fully customizable grappling hook, and get ready to bring the thunder!",
       "price": 15.99,
       "publisher": "Square Enix",
-      "rating": 4.2,
-      "rateCount": 300,
+      "rating": 4.1993355481727574,
+      "rateCount": 301,
       "platform": "Windows 10",
       "sold": 1200,
       "category": "Shooter, Adventure",
@@ -847,7 +847,7 @@
       "price": 0,
       "publisher": "Hi-Rez Studios",
       "rating": 4,
-      "rateCount": 300,
+      "rateCount": 2,
       "platform": "Windows 10",
       "sold": 1400,
       "category": "Strategy, RPG",
@@ -881,9 +881,30 @@
       "avatar": "http://localhost:3001/avatar/default.png",
       "cart": [
         "7",
-        "5"
+        "5",
+        "22",
+        "2"
       ],
+      "ratedProducts": {
+        "22": 4,
+        "23": 3,
+        "24": 4,
+        "25": 3
+      },
       "id": 1
+    },
+    {
+      "email": "thunderking8x@gmail.com",
+      "password": "$2a$10$e3Oy3AzJPoPWFXDNsnkS2OQCS3WwY857l7XHMmc86xsmdnMThprqq",
+      "firstname": "Nguyễn Tuấn",
+      "lastname": "Linh",
+      "phone": "0355469233",
+      "avatar": "http://localhost:3001/avatar/default.png",
+      "cart": [],
+      "ratedProducts": {
+        "25": 5
+      },
+      "id": 2
     }
   ]
 }

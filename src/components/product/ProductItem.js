@@ -24,10 +24,14 @@ function ProductItem(props) {
 				<div className="product__foot-price">
 					{product.price === 0 ? "Free" : "$" + product.price}
 				</div>
-				<div className="product__foot-rating">
-					<StarRateIcon />
-					{product.rating.toFixed(1)}
-				</div>
+				{product.rateCount ? (
+					<div className="product__foot-rating">
+						<StarRateIcon />
+						{product.rating.toFixed(1)}
+					</div>
+				) : (
+					""
+				)}
 			</div>
 		</Link>
 	);

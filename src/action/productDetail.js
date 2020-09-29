@@ -1,3 +1,5 @@
+import { getUserInfo } from "./auth";
+
 export const fetchProductDetail = (id) => {
 	return (dispatch) => {
 		dispatch(fetchProductDetailBegin());
@@ -31,6 +33,58 @@ export const fetchRelatedProducts = (id, categories) => {
 			})
 			.catch((error) => {
 				dispatch(fetchRelatedProductsFailure(error.toString()));
+			});
+	};
+};
+
+export const rateProduct = (productId, userinfo, productDetail, rate) => {
+	return (dispatch) => {
+		let count = productDetail.rateCount;
+		let rateSum = productDetail.rating * productDetail.rateCount + rate;
+		if (userinfo.ratedProducts) {
+			if (Object.keys(userinfo.ratedProducts).includes(productId)) {
+				rateSum -= userinfo.ratedProducts[productId];
+			} else {
+				count++;
+			}
+		}
+		const ratedProducts = {
+			...userinfo.ratedProducts,
+			[productId]: rate,
+		};
+		const rating = rateSum / count;
+
+		let urlForProduct = `http://localhost:3001/products/${productId}`;
+		let urlForUser = `http://localhost:3001/users/${userinfo.id}`;
+
+		Promise.all([
+			fetch(urlForProduct, {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ rating: rating, rateCount: count }),
+			}),
+			fetch(urlForUser, {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ ratedProducts: ratedProducts }),
+			}),
+		])
+			.then(() => {
+				dispatch(
+					fetchProductDetailSuccess({
+						...productDetail,
+						rating: rating,
+						rateCount: count,
+					})
+				);
+				dispatch(getUserInfo({ ...userinfo, ratedProducts: ratedProducts }));
+			})
+			.catch((error) => {
+				alert(error.toString() + ", please try again later");
 			});
 	};
 };
