@@ -89,6 +89,26 @@ export const rateProduct = (productId, userinfo, productDetail, rate) => {
 	};
 };
 
+export const addViewedProduct = (products, userinfo) => {
+	return (dispatch) => {
+		const url = `http://localhost:3001/users/${userinfo.id}`;
+
+		fetch(url, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ viewedProducts: products }),
+		})
+			.then(() => {
+				dispatch(getUserInfo({ ...userinfo, viewedProducts: products }));
+			})
+			.catch((error) => {
+				console.log(error.toString());
+			});
+	};
+};
+
 export const fetchProductDetailBegin = () => {
 	return {
 		type: "FETCH_PRODUCT_DETAIL_BEGIN",

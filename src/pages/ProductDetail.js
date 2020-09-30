@@ -2,7 +2,11 @@ import { LinearProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchProductDetail, rateProduct } from "../action/productDetail";
+import {
+	addViewedProduct,
+	fetchProductDetail,
+	rateProduct,
+} from "../action/productDetail";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import StarRateIcon from "@material-ui/icons/StarRate";
@@ -17,6 +21,7 @@ import ProductRelated from "../components/product/ProductRelated";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { changeCart } from "../action/cart";
+import RecentlyViewed from "../components/RecentlyViewed";
 
 function ProductDetail() {
 	const productId = useParams().productId;
@@ -31,6 +36,11 @@ function ProductDetail() {
 	useEffect(() => {
 		dispatch(fetchProductDetail(productId));
 	}, [dispatch, productId]);
+
+	useEffect(() => {
+		addToViewedProducts();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [productDetail]);
 
 	const otherInfo = (title, value) => {
 		return (
@@ -66,9 +76,30 @@ function ProductDetail() {
 	};
 
 	const handleRateClick = (value) => {
-		dispatch(rateProduct(productId, userinfo, productDetail, value));
+		if (userinfo) {
+			dispatch(rateProduct(productId, userinfo, productDetail, value));
+		} else {
+			let ques = window.confirm("Please sign in to rate this game");
+			if (ques) {
+				window.location.href = "/login";
+			}
+		}
 	};
 
+	const addToViewedProducts = () => {
+		if (userinfo) {
+			let products = userinfo.viewedProducts;
+			if (userinfo.viewedProducts.includes(productId)) {
+				products = userinfo.viewedProducts.filter((value) => {
+					return value !== productId;
+				});
+			}
+			products.unshift(productId);
+			dispatch(addViewedProduct(products, userinfo));
+		}
+	};
+
+	/*UI*/
 	if (error) {
 		return <div className="error">{error}</div>;
 	} else if (loading) {
@@ -244,6 +275,18 @@ function ProductDetail() {
 								<ProductRelated />
 							</div>
 						</div>
+
+						{/* Recently Viewed */}
+						{userinfo && userinfo.viewedProducts.length > 0 ? (
+							<div className="detail__recently">
+								<div>Recently Viewed</div>
+								<div className="detail__recently-list">
+									<RecentlyViewed productId={productId} />
+								</div>
+							</div>
+						) : (
+							""
+						)}
 					</div>
 				</main>
 				<Footer />

@@ -135,12 +135,12 @@
                 background-color: white
                 padding: $lgSpace
 
-        &__related
+        &__related, &__recently
             &-list
                 .listProducts
-                    @extend .endContent
                     &__list 
                         display: flex
+                        flex-wrap: wrap
                         margin: 0 -1% 0 -1%
                         &-item 
                             flex-basis: 23%
