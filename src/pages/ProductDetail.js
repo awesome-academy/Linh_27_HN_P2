@@ -1,7 +1,7 @@
 import { LinearProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import {
 	addViewedProduct,
 	fetchProductDetail,
@@ -24,6 +24,7 @@ import { changeCart } from "../action/cart";
 import RecentlyViewed from "../components/RecentlyViewed";
 
 function ProductDetail() {
+	const history = useHistory();
 	const productId = useParams().productId;
 	const loading = useSelector((state) => state.productDetail.loading);
 	const error = useSelector((state) => state.productDetail.error);
@@ -40,7 +41,7 @@ function ProductDetail() {
 	useEffect(() => {
 		addToViewedProducts();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [productDetail]);
+	}, [productId]);
 
 	const otherInfo = (title, value) => {
 		return (
@@ -75,22 +76,39 @@ function ProductDetail() {
 		}
 	};
 
+	const handleBuyClick = () => {
+		if (userinfo) {
+			if (!changeLoading) {
+				let myCart = userinfo.cart ? userinfo.cart : [];
+				if (!myCart.includes(productId)) {
+					myCart = myCart.concat(productId);
+				}
+				dispatch(changeCart(userinfo.id, myCart, productDetail.name));
+				if (!changeLoading) {
+					history.push("/cart", {id: productId, price: productDetail.price})
+				}
+			}
+		} else {
+			history.push("/login");
+		}
+	};
+
 	const handleRateClick = (value) => {
 		if (userinfo) {
 			dispatch(rateProduct(productId, userinfo, productDetail, value));
 		} else {
 			let ques = window.confirm("Please sign in to rate this game");
 			if (ques) {
-				window.location.href = "/login";
+				history.push("/login");
 			}
 		}
 	};
 
 	const addToViewedProducts = () => {
 		if (userinfo) {
-			let products = userinfo.viewedProducts;
-			if (userinfo.viewedProducts.includes(productId)) {
-				products = userinfo.viewedProducts.filter((value) => {
+			let products = [...userinfo.viewedProducts];
+			if (products.includes(productId)) {
+				products = products.filter((value) => {
 					return value !== productId;
 				});
 			}
@@ -166,8 +184,19 @@ function ProductDetail() {
 										</div>
 									</div>
 									<div className="shopping__buttons">
-										<Link className="buy" to="/checkout">
-											Buy now
+										<Link
+											className="buy"
+											to="#"
+											onClick={(e) => {
+												e.preventDefault();
+												handleBuyClick();
+											}}
+										>
+											{changeLoading ? (
+												<CircularProgress className="loadingCircle" size={24} />
+											) : (
+												"Buy now"
+											)}
 										</Link>
 										<Link
 											className="addToCart"

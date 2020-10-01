@@ -42,5 +42,16 @@ main
 .title 
     font-size: 1.3em
     margin-bottom: 1rem
+    
+::-webkit-scrollbar
+    width: $smSpace
 
-@import 'components/header', 'components/footer', 'pages/homepage', 'pages/browsepage', 'pages/productDetail', 'pages/form'
+::-webkit-scrollbar-track
+    background: $FormColor
+
+::-webkit-scrollbar-thumb
+    background: $GrayColor
+    &:hover 
+        background: $TextColor
+
+@import 'components/header', 'components/footer', 'pages/homepage', 'pages/browsepage', 'pages/productDetail', 'pages/form', 'pages/cart'

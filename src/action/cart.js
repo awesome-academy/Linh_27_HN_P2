@@ -23,6 +23,26 @@ export const changeCart = (id, cart) => {
 	};
 };
 
+export const fetchCart = (ids) => {
+	return (dispatch) => {
+		dispatch(fetchCartBegin());
+		let url = `http://localhost:3001/products?`;
+
+		for (let i = 0; i < ids.length; i++) {
+			url += `&id=${ids[i]}`
+		}
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((result) => {
+				dispatch(fetchCartSuccess(result))
+			})
+			.catch((error) => {
+				dispatch(fetchCartFailure(error.toString()))
+			})
+	}
+}
+
 export const fetchCartBegin = () => {
 	return {
 		type: "FETCH_CART_BEGIN",

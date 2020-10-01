@@ -1,0 +1,130 @@
+.Cart
+    ::-webkit-scrollbar
+        width: $xsSpace
+    main 
+        min-height: 100vh 
+        @extend .endContent
+        +flexDisplay(space-between)
+        .cart
+            flex-basis: 70%
+            &__list 
+                height: 70vh
+                overflow-y: auto
+                &-item
+                    +flexDisplay(space-between)
+                    align-items: center
+                    padding-right: $mdSpace
+                    margin: $mdSpace 0
+                    svg 
+                        color: $TextColor
+                    &-info 
+                        flex-basis: 90%
+                        display: flex 
+                        align-items: center
+                        &-checkbox
+                            margin-right: $mdSpace
+                            span 
+                                padding: 0
+                        &-banner 
+                            flex-basis: 25%
+                            padding-bottom: 10%
+                            background-size: cover !important
+                        &-content 
+                            margin-left: $mdSpace
+                            p:first-child
+                                margin-bottom: $smSpace
+                            p:nth-child(2)
+                                color: $TextColor
+                    &-remove
+                        cursor: pointer 
+                        svg:hover 
+                            transition: 0.5s
+                            color: #e74c3c
+                            
+            &__btn 
+                +flexDisplay(space-between)
+                align-items: center
+                margin-top: $mdSpace
+                &-checkbox 
+                    display: flex 
+                    align-items: center
+                    span 
+                        margin-right: $smSpace
+                        padding: 0
+                button 
+                    outline: none
+                    border: none
+                    font-size: 1em
+                    margin-left: $smSpace
+                    padding: $smSpace $mdSpace
+                    cursor: pointer
+                    background: $GrayColor
+                    transition: 0.5s
+                    &:hover 
+                        background: $PrimaryColor
+        .info 
+            flex-basis: 25%
+            &__content
+                height: 70vh
+                &-avatar 
+                    width: 70%
+                    padding-bottom: 70%
+                    border-radius: 50%
+                    margin: auto
+                    background-size: cover !important   
+                &-name 
+                    text-align: center
+                    font-weight: 600
+                    text-transform: uppercase
+                    margin: $mdSpace 0 $lgSpace  
+                &-other 
+                    display: flex    
+                    align-items: center  
+                    line-height: 2em
+                    svg
+                        margin-right: $smSpace
+                        color: $TextColor
+                &-order 
+                    text-transform: uppercase
+                    margin-top: $xlSpace
+                    & > div 
+                        +flexDisplay(space-between)
+                    &-total 
+                        border-bottom: 1px solid $TextColor
+                        padding-bottom: $mdSpace
+                        margin-bottom: $lgSpace
+                    &-price 
+                        font-size: 1.5em
+                        font-weight: 600
+                        p
+                            color: $PrimaryColor
+            &__btn 
+                margin-top: $mdSpace
+                a 
+                    font-weight: 600
+                    display: block
+                    background-color: $GrayColor
+                    text-align: center 
+                    padding: $smSpace 0
+                    transition: 0.5s
+                &--active
+                    a
+                        background-color: $PrimaryColor
+                        &:hover 
+                            opacity: 0.8
+        .nocart
+            width: 100%
+            +flexDisplay(center)
+            flex-direction: column
+            text-align: center
+            svg 
+                color: $PrimaryColor
+                font-size: 8em
+            p 
+                font-size: 3em
+                margin-bottom: $xsSpace
+            a 
+                font-size: 1.2em
+                color: $TextColor
+                &:hover 
+                    text-decoration: underline

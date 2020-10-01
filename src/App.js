@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { authorize } from "./action/auth";
+import Cart from "./pages/Cart";
 
 function App() {
 	const dispatch = useDispatch();
@@ -23,16 +24,16 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/login">
-						<Login />
+						{userinfo ? <HomePage /> : <Login />}
 					</Route>
 					<Route exact path="/signup">
-						<Signup />
+						{userinfo ? <HomePage /> : <Signup />}
 					</Route>
 					<Route exact path="/profile">
 						{userinfo ? <h1>Profile</h1> : <Login />}
 					</Route>
 					<Route exact path="/cart">
-						{userinfo ? <h1>Cart</h1> : <Login />}
+						{userinfo ? <Cart /> : <Login />}
 					</Route>
 					<Route exact path="/checkout">
 						{userinfo ? <h1>Checkout</h1> : <Login />}
